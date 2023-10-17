@@ -35,6 +35,13 @@ class Person
     public string BirthCityCode { get; set; }
     public DateTime BirthDate { get; set; }
 
+    public enum GenderType
+    {
+        Male,
+        Female,
+        NotSpecified
+    }
+
     public int Age()
     {
         DateTime currentDate = DateTime.Now;
@@ -46,12 +53,41 @@ class Person
         return age;
     }
 
-    public string Fiscalcode()
+   /*
+    public string FiscalCode()
     {
-        
+        string result, gender;
 
-        return "XXXXXX";
+        //create an istance of CodiceFiscale class
+        CodiceFiscaleUtility.CodiceFiscale FiscalCode;
+
+        //adapt the Gender property to the string type required by CodiceFiscale class
+
+        if (this.Gender == GenderType.NotSpecified)
+        {
+            //if gender is missing, can't calculate fiscal code
+            result = "";
+        }
+        else
+        {
+            if (this.Gender == GenderType.Male)
+            {
+                gender = "M";
+            }
+            else
+            {
+                gender = "F";
+            }
+
+            FiscalCode = new CodiceFiscaleUtility.CodiceFiscale(this.LastName, this.FirstName, gender, this.BirthDate, this.BirthCity, this.BirthProvince);
+
+            //use CodiceFiscale class to generate the fiscal code
+            result = FiscalCode.Codice;
+        }
+
+        return result;
     }
+   */
 }
 
 
